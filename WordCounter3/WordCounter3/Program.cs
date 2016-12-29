@@ -13,7 +13,7 @@ namespace WordCounter3
             int repeatCounter = 0;
             Console.Write("Введите текст : ");
             string str = "asd as  w aw we r t  t we w w qqqw wer"; // Expected: 9; Result: 10
-            string[] words = str.Split(' ');
+            string[] words = str.Split(new[] { '.', ',', '\'', '\"', ':', ';', '!', '?', ' ' });
             int counter = words.Length;
             for (int i = 0; i < words.Length; i++)
                 for (int j = 0; j < words.Length; j++)
