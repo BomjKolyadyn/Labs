@@ -16,24 +16,30 @@ namespace WordCounter3
             string[] words = str.Split(new[] { '.', ',', '\'', '\"', ':', ';', '!', '?', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int counter = words.Length;
             for (int i = 0; i < words.Length; i++)
+
             {
                 for (int j = 0; j < words.Length; j++)
+
                 {
                     if ((words[i] == words[j]) && (i != j))
+
                     {
                         words[i] = null;
                     }
                 }
             }
             foreach (string q in words)
+
             {
                 if (q == null)
+
                 {
                     repeatCounter--;
                 }
             }
             counter = counter - Math.Abs(repeatCounter);
             foreach (string a in words)
+
             {
                 Console.WriteLine(a);
             }
