@@ -15,6 +15,16 @@ namespace WordCounter3
             string str = "asd as  w aw we r t  t we w w qqqw wer"; 
             string[] words = str.Split(new[] { '.', ',', '\'', '\"', ':', ';', '!', '?', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
+            var uniqueWordsByLinq = words.Distinct().ToList();
+
+            foreach (var uniqueWord in uniqueWordsByLinq)
+            {
+                Console.WriteLine(uniqueWord);
+            }
+
+            Console.WriteLine("------------------------------");
+
+
             var uniqueWordsSet = new HashSet<string>();
 
             foreach (var word in words)
@@ -31,6 +41,7 @@ namespace WordCounter3
             }
 
             Console.WriteLine("------------------------------");
+
 
             var uniqueWords = new List<string>();
             
@@ -58,6 +69,7 @@ namespace WordCounter3
             }
 
             Console.WriteLine("------------------------------");
+
 
             int counter = words.Length;
             for (int i = 0; i < words.Length; i++)
