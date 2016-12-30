@@ -11,9 +11,26 @@ namespace WordCounter3
         static void Main(string[] args)
         {
             int repeatCounter = 0;
-            Console.Write("Введите текст : ");
+
             string str = "asd as  w aw we r t  t we w w qqqw wer"; 
             string[] words = str.Split(new[] { '.', ',', '\'', '\"', ':', ';', '!', '?', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var uniqueWordsSet = new HashSet<string>();
+
+            foreach (var word in words)
+            {
+                if (!uniqueWordsSet.Contains(word))
+                {
+                    uniqueWordsSet.Add(word);
+                }
+            }
+
+            foreach (var uniqueWord in uniqueWordsSet)
+            {
+                Console.WriteLine(uniqueWord);
+            }
+
+            Console.WriteLine("------------------------------");
 
             var uniqueWords = new List<string>();
             
