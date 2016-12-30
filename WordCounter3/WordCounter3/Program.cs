@@ -14,14 +14,40 @@ namespace WordCounter3
             Console.Write("Введите текст : ");
             string str = "asd as  w aw we r t  t we w w qqqw wer"; 
             string[] words = str.Split(new[] { '.', ',', '\'', '\"', ':', ';', '!', '?', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var uniqueWords = new List<string>();
+            
+            for (int i = 0; i < words.Length; i++)
+            {
+                var isRepeated = false;
+                for (int j = i - 1; j >= 0; j--)
+                {
+                    if (words[i] == words[j])
+                    {
+                        isRepeated = true;
+                        break;
+                    }
+                }
+
+                if (!isRepeated)
+                {
+                    uniqueWords.Add(words[i]);
+                }
+            }
+
+            foreach (var uniqueWord in uniqueWords)
+            {
+                Console.WriteLine(uniqueWord);
+            }
+
+            Console.WriteLine("------------------------------");
+
             int counter = words.Length;
             for (int i = 0; i < words.Length; i++)
             {
                 for (int j = 0; j < words.Length; j++)
-
                 {
                     if ((words[i] == words[j]) && (i != j))
-
                     {
                         words[i] = null;
                     }
